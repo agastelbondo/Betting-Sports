@@ -49,7 +49,7 @@ if (length(encontradas) == 0) {
 cat("Columnas seleccionadas:", paste(encontradas, collapse = ", "), "\n")
 
 # ---- Filtrar y guardar en una carpeta aparte ---------------
-carpeta_salida <- "resultados"                   # cambia el nombre si quieres
+carpeta_salida <- "resultados/filtradas"                   # cambia el nombre si quieres
 dir.create(carpeta_salida, showWarnings = FALSE) # la crea si no existe
 
 archivo_salida <- file.path(carpeta_salida, "E0_filtrado.csv")

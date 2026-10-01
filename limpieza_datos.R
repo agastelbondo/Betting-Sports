@@ -30,7 +30,7 @@ vars_clave <- c("Date", "HomeTeam", "AwayTeam",
                 "FTHG", "FTAG", "FTR", "HTHG", "HTAG")
 
 # ---- 2. LEER LA BASE FILTRADA ------------------------------
-archivo_entrada <- file.path("resultados", "E0_filtrado.csv")
+archivo_entrada <- file.path("resultados/filtradas", "E0_filtrado.csv")
 if (!file.exists(archivo_entrada)) {
   stop("No existe ", archivo_entrada,
        ". Ejecuta primero filtrar_variables_sin_renombrar.R")
@@ -151,7 +151,7 @@ resumen <- rbind(resumen, data.frame(
 ))
 
 # ---- 10. GUARDAR RESULTADOS --------------------------------
-carpeta_salida <- "resultados"
+carpeta_salida <- "resultados/datos_limpios"
 dir.create(carpeta_salida, showWarnings = FALSE)
 
 datos_limpios <- datos[conservado, ]

@@ -28,8 +28,10 @@ if (requireNamespace("rstudioapi", quietly = TRUE) &&
 }
 
 # ---- 1. PARAMETROS -----------------------------------------
-carpeta <- "resultados"
-archivo_entrada <- file.path(carpeta, "E0_limpio.csv")
+carpeta1 <- "resultados/datos_limpios"
+carpeta <- "resultados/margen"
+dir.create(carpeta, showWarnings = FALSE)
+archivo_entrada <- file.path(carpeta1, "E0_limpio.csv")
 
 # Prefijos que NO son casas reales sino agregados del mercado
 # (maximo y promedio de todas las casas). Se calculan, pero se separan.
