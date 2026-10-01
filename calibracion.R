@@ -24,9 +24,13 @@ if (requireNamespace("rstudioapi", quietly = TRUE) &&
 }
 
 # ---- 1. PARÁMETROS ------------------------------------------
-carpeta      <- "resultados"
-arch_norm    <- file.path(carpeta, "probabilidades_normalizadas.csv")
-arch_orig    <- file.path(carpeta, "E0_limpio.csv")
+carpeta      <- "resultados/calibracion"
+dir.create(carpeta, showWarnings = FALSE)
+carpeta1 <- "resultados/normalizacion"
+carpeta2 <- "resultados/datos_limpios"
+
+arch_norm    <- file.path(carpeta1, "probabilidades_normalizadas.csv")
+arch_orig    <- file.path(carpeta2, "E0_limpio.csv")
 N_INTERVALOS <- 10
 
 if (!file.exists(arch_norm)) stop("Ejecuta primero 04_normalizacion.R")

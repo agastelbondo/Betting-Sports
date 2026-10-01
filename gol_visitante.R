@@ -15,8 +15,10 @@ if (requireNamespace("rstudioapi", quietly = TRUE) &&
   setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 }
 
-carpeta <- "resultados"
-datos   <- read_csv(file.path(carpeta, "E0_limpio.csv"), show_col_types = FALSE)
+carpeta <- "resultados/gol_visitante"
+dir.create(carpeta, showWarnings = FALSE)
+carpeta2 <- "resultados/datos_limpios"
+datos   <- read_csv(file.path(carpeta2, "E0_limpio.csv"), show_col_types = FALSE)
 
 # ---- PROBABILIDAD GENERAL -----------------------------------
 total    <- nrow(datos)

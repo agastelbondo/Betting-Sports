@@ -48,8 +48,10 @@ if (requireNamespace("rstudioapi", quietly = TRUE) &&
 }
 
 # ---- 1. PARAMETROS -----------------------------------------
-carpeta         <- "resultados"
-archivo_entrada <- file.path(carpeta, "probabilidades_margenes_largo.csv")
+carpeta1         <- "resultados/margen"
+carpeta <- "resultados/normalizacion"
+dir.create(carpeta, showWarnings = FALSE)
+archivo_entrada <- file.path(carpeta1, "probabilidades_margenes_largo.csv")
 tol             <- 1e-8   # tolerancia para validar que la suma = 1
 
 if (!file.exists(archivo_entrada)) {
