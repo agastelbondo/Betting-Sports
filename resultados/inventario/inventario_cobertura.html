@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Cobertura — Betting Sports</title>
+  <style>
+    body        { font-family: "Segoe UI", Arial, sans-serif; margin: 40px;
+                  color: #222; background: #fafafa; }
+    h1          { color: #1a3a5c; border-bottom: 3px solid #1a3a5c;
+                  padding-bottom: 8px; }
+    h2          { color: #2c5f8a; margin-top: 40px; }
+    h3          { color: #444; }
+    .tabla      { border-collapse: collapse; width: 100%; margin: 16px 0 28px; }
+    .tabla th   { background: #1a3a5c; color: #fff; padding: 9px 12px;
+                  text-align: left; font-size: 13px; }
+    .tabla td   { border: 1px solid #ddd; padding: 8px 12px; font-size: 13px; }
+    .tabla tr:nth-child(even) { background: #f0f4f8; }
+    .caja-nota  { background: #fff8e1; border-left: 4px solid #f0a500;
+                  padding: 12px 16px; margin: 20px 0; font-size: 13px;
+                  border-radius: 4px; }
+    .chip       { display: inline-block; background: #e0ecf8; color: #1a3a5c;
+                  border-radius: 12px; padding: 2px 10px; font-size: 12px;
+                  margin: 2px; }
+    .excluido   { background: #fdecea; }
+    .ok         { color: #2e7d32; font-weight: bold; }
+    .warn       { color: #c62828; font-weight: bold; }
+    footer      { margin-top: 50px; font-size: 12px; color: #888;
+                  border-top: 1px solid #ddd; padding-top: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Inventario de Cobertura</h1>
+<p>
+  <span class="chip">Proyecto: Betting-Sports</span>
+  <span class="chip">Materia: Estadística Industrial</span>
+  <span class="chip">Universidad del Magdalena</span>
+</p>
+<p><strong>Liga:</strong> Premier League &nbsp;|&nbsp;
+   <strong>Temporada:</strong> 2021/22 &nbsp;|&nbsp;
+   <strong>Fuente:</strong> football-data.co.uk (E0.csv)</p>
+
+<!-- ======================================================= -->
+<h2>1. Cobertura por operador</h2>
+<p>
+  Partidos disponibles para análisis una vez aplicadas todas las reglas de
+  limpieza, desglosados por casa de apuestas. La muestra analítica es la misma
+  para los tres operadores para garantizar comparabilidad.
+</p>
+
+<table id="tabla-operadores" class="tabla"><thead><tr><th>Liga</th><th>Temporada</th><th>Operador</th><th>Nombre completo</th><th>Mercado</th><th>Partidos (temporada)</th><th>Partidos en raw (E0)</th><th>Excluidos</th><th>Disponibles</th><th>Cobertura (%)</th></tr></thead><tbody><tr><td>Premier League</td><td>2021/22</td><td>B365</td><td>Bet365</td><td>1X2 cierre</td><td>380</td><td>380</td><td>0</td><td>377</td><td>99.21</td></tr><tr><td>Premier League</td><td>2021/22</td><td>BW</td><td>Betway / Bwin</td><td>1X2 cierre</td><td>380</td><td>380</td><td>0</td><td>377</td><td>99.21</td></tr><tr><td>Premier League</td><td>2021/22</td><td>IW</td><td>Interwetten</td><td>1X2 cierre</td><td>380</td><td>380</td><td>3</td><td>377</td><td>99.21</td></tr></tbody></table>
+
+<!-- ======================================================= -->
+<h2>2. Reglas de exclusión aplicadas</h2>
+<p>
+  Las reglas se aplican en secuencia sobre el dataset original.
+  Un partido que falla la Regla 1 no se evalúa en las siguientes.
+</p>
+
+<table id="tabla-reglas" class="tabla"><thead><tr><th>Regla clave</th><th>Descripción</th><th>Cumplen</th><th>Incumplen</th><th>Eliminados (secuencia)</th><th>Quedan después</th></tr></thead><tbody><tr><td>sin_duplicado</td><td>Regla 1 — Sin duplicado: misma fecha y equipos no repetidos</td><td>380</td><td>0</td><td>0</td><td>380</td></tr><tr><td>cuotas_validas</td><td>Regla 2 — Cuotas válidas: todas las cuotas de cierre son numéricas y > 1</td><td>377</td><td>3</td><td>3</td><td>377</td></tr><tr><td>medio_tiempo_ok</td><td>Regla 3 — Consistencia medio tiempo: goles HT ≤ goles FT</td><td>380</td><td>0</td><td>0</td><td>377</td></tr><tr><td>resultado_final_ok</td><td>Regla 4 — Coherencia FTR: resultado registrado coincide con marcador</td><td>380</td><td>0</td><td>0</td><td>377</td></tr></tbody></table>
+
+<!-- ======================================================= -->
+<h2>3. Detalle de partidos excluidos</h2>
+<p>
+  Los <strong>3 partidos</strong> que no pasaron el
+  control de calidad se listan a continuación con su justificación.
+</p>
+
+<table class="tabla"><thead><tr><th>Fila orig.</th><th>Fecha</th><th>Local</th><th>Visitante</th><th>Regla fallida</th><th>Justificación</th></tr></thead><tbody><tr class="excluido"><td>338</td><td>30/04/2022</td><td>Leeds</td><td>Man City</td><td class="warn">cuota_invalida_o_faltante</td><td>Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades.</td></tr><tr class="excluido"><td>339</td><td>01/05/2022</td><td>Everton</td><td>Chelsea</td><td class="warn">cuota_invalida_o_faltante</td><td>Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades.</td></tr><tr class="excluido"><td>340</td><td>01/05/2022</td><td>Tottenham</td><td>Leicester</td><td class="warn">cuota_invalida_o_faltante</td><td>Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades.</td></tr></tbody></table>
+
+<!-- ======================================================= -->
+<h2>4. Nota metodológica sobre exclusiones</h2>
+<div class="caja-nota">
+  <strong>Criterio de consistencia entre operadores:</strong><br>
+  Se excluyen 3 partidos (Premier League 2021/22) por cuota de cierre ausente o inválida en Interwetten (IW): Leeds vs Man City (30/04/2022); Everton vs Chelsea (01/05/2022); Tottenham vs Leicester (01/05/2022). Aunque B365 y BW tienen cobertura completa en esos 3 partidos, se excluyen de la muestra analítica para mantener la comparabilidad entre operadores sobre el mismo conjunto de partidos.
+</div>
+
+<h3>Fuente de los datos originales</h3>
+<ul>
+  <li><strong>Archivo:</strong> E0.csv — descargado de
+      <a href="https://www.football-data.co.uk" target="_blank">football-data.co.uk</a></li>
+  <li><strong>Cobertura original:</strong> 380 filas × 106 columnas (cuotas de apertura y cierre, estadísticas de partido)</li>
+  <li><strong>Variables seleccionadas:</strong> 22 columnas via diccionario.xlsx
+      (variables clave + cuotas de cierre de B365, BW e IW + líneas de handicap)</li>
+  <li><strong>Operadores disponibles en E0.csv no seleccionados:</strong>
+      Pinnacle (PS), William Hill (WH), VC Bet (VC), máximos y promedios del mercado.
+      Se excluyeron porque el análisis se centra en los tres operadores con mayor
+      volumen de datos completos y representatividad en el mercado europeo.</li>
+</ul>
+
+<footer>
+  Generado automáticamente por <code>inventario_cobertura.R</code> —
+  Proyecto Betting-Sports, Estadística Industrial,
+  Universidad del Magdalena — 2021/22
+</footer>
+
+</body>
+</html>

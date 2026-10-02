@@ -1,0 +1,5 @@
+liga,temporada,regla,regla_descripcion,cumplen,incumplen,eliminados_en_secuencia,quedan_despues
+Premier League,2021/22,sin_duplicado,Regla 1 — Sin duplicado: misma fecha y equipos no repetidos,380,0,0,380
+Premier League,2021/22,cuotas_validas,Regla 2 — Cuotas válidas: todas las cuotas de cierre son numéricas y > 1,377,3,3,377
+Premier League,2021/22,medio_tiempo_ok,Regla 3 — Consistencia medio tiempo: goles HT ≤ goles FT,380,0,0,377
+Premier League,2021/22,resultado_final_ok,Regla 4 — Coherencia FTR: resultado registrado coincide con marcador,380,0,0,377

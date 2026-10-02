@@ -1,0 +1,4 @@
+liga,temporada,operador_codigo,operador_nombre,mercado,partidos_temporada,partidos_en_raw,excluidos_por_limpieza,disponibles_para_analisis,pct_cobertura,faltantes_en_limpio
+Premier League,2021/22,B365,Bet365,1X2 cierre,380,380,0,377,99.21,0
+Premier League,2021/22,BW,Betway / Bwin,1X2 cierre,380,380,0,377,99.21,0
+Premier League,2021/22,IW,Interwetten,1X2 cierre,380,380,3,377,99.21,9

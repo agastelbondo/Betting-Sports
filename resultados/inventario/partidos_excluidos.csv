@@ -1,0 +1,4 @@
+liga,temporada,fila_original,Date,HomeTeam,AwayTeam,sin_duplicado,cuotas_validas,medio_tiempo_ok,resultado_final_ok,motivo_eliminacion,justificacion
+Premier League,2021/22,338,30/04/2022,Leeds,Man City,1,0,1,1,cuota_invalida_o_faltante,"Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades."
+Premier League,2021/22,339,01/05/2022,Everton,Chelsea,1,0,1,1,cuota_invalida_o_faltante,"Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades."
+Premier League,2021/22,340,01/05/2022,Tottenham,Leicester,1,0,1,1,cuota_invalida_o_faltante,"Cuota de cierre ausente o inválida (NA / valor ≤ 1) en al menos un operador seleccionado (IW). Sin cuota completa, no es posible calcular margen ni normalizar probabilidades."
