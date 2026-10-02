@@ -29,7 +29,9 @@ scripts <- c(
   "normalizacion_probabilidades.R",
   "gol_visitante.R",
   "calibracion.R",
-  "calibracion_por_nivel.R"
+  "calibracion_por_nivel.R",
+  "reporte_Calibracion.R",
+  "inventario_cobertura.R"
 )
 
 # 6. Ejecutarlos, avisando cuál falla si hay error

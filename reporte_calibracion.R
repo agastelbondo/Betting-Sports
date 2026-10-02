@@ -623,8 +623,8 @@ html <- paste0('<!DOCTYPE html>
 # ============================================================
 # GUARDAR Y ABRIR
 # ============================================================
-dir.create("resultados", showWarnings = FALSE)
-ruta_html <- "resultados/reporte_calibracion.html"
+dir.create("resultados/reporte", showWarnings = FALSE)
+ruta_html <- "resultados/reporte/reporte_calibracion.html"
 writeLines(html, ruta_html)
 cat("\nReporte guardado en:", ruta_html, "\n")
 
