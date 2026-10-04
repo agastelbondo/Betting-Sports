@@ -31,7 +31,8 @@ scripts <- c(
   "calibracion.R",
   "calibracion_por_nivel.R",
   "reporte_Calibracion.R",
-  "inventario_cobertura.R"
+  "inventario_cobertura.R",
+  "base_analitica.R"
 )
 
 # 6. Ejecutarlos, avisando cuál falla si hay error
